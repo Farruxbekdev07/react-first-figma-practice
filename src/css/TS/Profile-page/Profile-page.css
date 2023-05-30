@@ -1,0 +1,79 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 0px 3px gray;
+  padding: 0 100px;
+  height: 100px;
+}
+header div {
+  display: flex;
+  align-items: center;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+header div p {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: darkblue;
+}
+header .kodecolor {
+  display: flex;
+  gap: 10px;
+}
+header .kodecolor img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+}
+header .kodecolor p {
+  font-size: 24px;
+  font-weight: 600;
+  color: darkblue;
+}
+header .input-wrapper {
+  display: flex;
+  width: 240px;
+  height: 40px;
+  box-shadow: 0 0 3px gray;
+  border-radius: 5px;
+  overflow: hidden;
+}
+header .input-wrapper button {
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 0;
+  border-radius: 5px;
+}
+header .input-wrapper input {
+  width: 200px;
+  height: 40px;
+  border: 0;
+  border-radius: 5px;
+}
+header .message {
+  display: flex;
+  gap: 10px;
+}
+header .message button {
+  width: 35px;
+  height: 30px;
+  background: rgb(190, 255, 233);
+  border: transparent;
+  border-radius: 5px;
+  color: blue;
+  font-weight: 600;
+}
+header .profile {
+  width: 50px;
+  height: 50px;
+  position: relative;
+}
+header .profile img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}/*# sourceMappingURL=Profile-page.css.map */

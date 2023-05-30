@@ -1,0 +1,329 @@
+.header {
+  background: #FBEBB5;
+  display: flex;
+  height: 100px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 100px;
+  z-index: 9;
+}
+.header ul {
+  display: flex;
+  gap: 30px;
+}
+.header ul li {
+  list-style: none;
+}
+.header ul li img {
+  width: 20px;
+  height: 20px;
+}
+.header ul li a {
+  font-size: 16px;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+}
+.header ul:first-child {
+  margin-left: 38%;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.main-section {
+  background: #FBEBB5;
+  height: calc(100vh - 100px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 150px;
+}
+.main-section img {
+  width: 38vw;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.main-section h1 {
+  font-size: 64px;
+  line-height: 96px;
+  font-weight: 500;
+  color: black;
+}
+
+.second-section {
+  height: 70vh;
+  padding: 0 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(40vw, 1fr));
+  margin-top: 50px;
+}
+.second-section .wrapper {
+  background: url(../../media/images/vector_2.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  display: grid;
+  justify-content: start;
+  align-items: end;
+  padding: 90px;
+}
+.second-section .wrapper:last-child {
+  background: url(../../media/images/sofa.png);
+  background-repeat: no-repeat;
+}
+
+.third-section {
+  padding: 0 150px;
+  margin-bottom: 100px;
+}
+.third-section .wrapper-div {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+.third-section .wrapper-div .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: none;
+}
+.third-section .wrapper-div .card div {
+  display: flex;
+  flex-direction: column;
+}
+.third-section .wrapper-div .card div small {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: black;
+}
+.third-section .wrapper-div .card div b {
+  font-size: 24px;
+  line-height: 36px;
+  font-weight: 500;
+}
+
+.fourth-section {
+  width: 100vw;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  background: #F5F5F5;
+  padding: 0 120px;
+}
+.fourth-section .img-wrapper {
+  width: 60%;
+}
+.fourth-section .img-wrapper img {
+  width: 100%;
+}
+.fourth-section .content-wrapper {
+  width: 40%;
+  text-align: center;
+}
+.fourth-section .content-wrapper b {
+  font-size: 24px;
+  line-height: 36px;
+  font-weight: 500;
+  color: black;
+}
+.fourth-section .content-wrapper h2 {
+  font-size: 48px;
+  line-height: 72px;
+  font-weight: 700;
+  color: black;
+}
+.fourth-section .content-wrapper button {
+  width: 255px;
+  height: 64px;
+  background: #FFF9E6;
+  border: 1px solid #000000;
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 400;
+  color: black;
+  margin-top: 40px;
+}
+
+.fives-section {
+  padding: 0 150px;
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+.fives-section .card-wrapper {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  gap: 20px;
+}
+.fives-section .card-wrapper .card {
+  text-align: center;
+  max-width: 500px;
+  border: 0;
+}
+.fives-section .card-wrapper .card .img-wrapper {
+  overflow: hidden;
+  border-radius: 8px;
+  min-height: 300px;
+  height: 330px;
+  max-height: 500px;
+}
+.fives-section .card-wrapper .card .content-wrapper small {
+  margin-top: 20px;
+  display: block;
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 400;
+  color: black;
+}
+.fives-section .card-wrapper .card .content-wrapper p {
+  margin-top: 20px;
+}
+
+.our-instagram {
+  width: 100%;
+  height: 50vh;
+  background: url(../../media/images/our_instagram.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.our-instagram div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.our-instagram div h1 {
+  font-size: 60px;
+  line-height: 90px;
+  font-weight: 700;
+  color: black;
+}
+.our-instagram div small {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  color: black;
+}
+.our-instagram div button {
+  border-radius: 50px;
+  width: 255px;
+  height: 64px;
+  margin-top: 10px;
+  background: #FAF4F4;
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 400;
+}
+
+.button-component {
+  border: 0;
+  border-bottom: 1px solid black;
+  background: transparent;
+  font-size: 24px;
+  line-height: 36px;
+  font-weight: 500;
+  color: black;
+  padding: 15px 0;
+}
+
+.button-wrapper {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.title {
+  text-align: center;
+}
+.title h2 {
+  font-size: 36px;
+  line-height: 54px;
+  font-weight: 500;
+  color: black;
+}
+.title small {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #9F9F9F;
+}
+
+footer {
+  width: 100%;
+  height: 455px;
+  display: flex;
+  padding: 0 150px;
+  align-items: center;
+}
+footer div {
+  width: 285px;
+  height: 72px;
+}
+footer div p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #9F9F9F;
+}
+footer .ul-wrapper {
+  width: auto;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: flex;
+  margin-left: 100px;
+}
+footer .ul-wrapper ul {
+  display: grid;
+  justify-content: space-between;
+}
+footer .ul-wrapper ul li {
+  font-size: 16px;
+  line-height: 56px;
+  font-weight: 500;
+  color: #000;
+  list-style: none;
+  width: 150px;
+}
+footer .ul-wrapper ul li:first-child {
+  color: #9F9F9F;
+}
+footer .ul-wrapper ul:last-child div {
+  display: flex;
+  gap: 20px;
+}
+footer .ul-wrapper ul:last-child div input {
+  border: 0;
+  border-bottom: 1px solid #000;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 400;
+  color: #9F9F9F;
+  width: 173px;
+  height: 21px;
+}
+footer .ul-wrapper ul:last-child div button {
+  width: 75px;
+  height: 21px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  color: black;
+  border: 0;
+  border-bottom: 1px solid #000;
+}
+
+.footer-title {
+  padding: 0 150px;
+}
+.footer-title p {
+  border-top: 1px solid black;
+  font-size: 16px;
+  line-height: 48px;
+  font-weight: 400;
+  color: black;
+}/*# sourceMappingURL=App.css.map */

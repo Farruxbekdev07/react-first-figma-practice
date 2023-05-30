@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.titles {
+  line-height: 100px;
+}
+
+.clients-card-wrapper .clients-card-title {
+  display: grid;
+  grid-template-columns: 40% 30% 15% 15%;
+}
+.clients-card-wrapper .clients-card-title p {
+  font-size: 16px;
+  font-weight: 600;
+}
+.clients-card-wrapper .clients-card {
+  display: grid;
+  grid-template-columns: 40% 30% 15% 15%;
+  align-items: center;
+  border: 1px solid gray;
+  padding: 7px 10px;
+}
+.clients-card-wrapper .clients-card p {
+  margin: 0;
+}
+.clients-card-wrapper .clients-card div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.clients-card-wrapper .clients-card div img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+.clients-card-wrapper .clients-card button {
+  width: -moz-fit-content;
+  width: fit-content;
+}/*# sourceMappingURL=clients.css.map */

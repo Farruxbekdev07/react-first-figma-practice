@@ -1,0 +1,74 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.wrappers {
+  border: 1px solid #AFB7CB;
+  border-radius: 8px;
+}
+.wrappers .total-amount {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
+  padding: 0 10vw;
+}
+
+.sales-card-title {
+  display: grid;
+  grid-template-columns: 225px auto;
+}
+.sales-card-title p {
+  color: #1E1E1E;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+}
+.sales-card-title .small-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+
+.sales-card {
+  display: grid;
+  grid-template-columns: 225px auto;
+  align-items: center;
+  border: 1px solid #AFB7CB;
+  padding: 7px;
+  border-radius: 8px;
+  color: #4B5563;
+}
+.sales-card div {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.sales-card div p {
+  margin: 0;
+}
+.sales-card div img {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  margin-right: 10px;
+}
+.sales-card div button {
+  width: 90px;
+  height: 22px;
+  border-radius: 4px;
+  padding: 4px 12px;
+  background: #E5F7E7;
+  color: #64D272;
+  font-size: 12px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid transparent;
+}
+.sales-card .small-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}/*# sourceMappingURL=sales.css.map */

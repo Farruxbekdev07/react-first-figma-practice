@@ -1,0 +1,100 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.wrapper-header {
+    border-bottom: 1px solid gray;
+}
+
+.wrapper-body {
+    padding: 20px;
+    padding-left: 40px;
+
+    .filter-title {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        padding-right: 10px;
+        // justify-content: space-between;
+
+        input {
+            width: 18px;
+            height: 18px;
+            margin-right: 20px;
+        }
+
+        .title {
+            width: 50%;
+            text-align: start;
+        }
+
+        div {
+            display: flex;
+            justify-content: space-between;
+            width: 50%;
+        }
+
+        p {
+            margin: 0;
+            
+        }
+    }
+
+    .filter-card-wrapper {
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+
+        input {
+            width: 18px;
+            height: 18px;
+            margin-right: 20px;
+        }
+
+        .filter-card {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            border: 1px solid gray;
+            padding: 5px;
+
+            div {
+                display: flex;
+                align-items: center;
+                width: 50%;
+
+                img {
+                    margin-right: 20px;
+                }
+            }
+
+            .last {
+                display: flex;
+                justify-content: space-between;
+
+                .option {
+                    width: 18px;
+                    height: 18px;
+                    border-radius: 50%;
+                    padding: 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border: 2px solid #4B5563;
+
+                    span {
+                        display: flex;
+                        align-items: center;
+                        line-height: 18px;
+                    }
+                }
+            }
+
+            p {
+                margin: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,49 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.titles {
+    line-height: 100px;
+}
+
+.clients-card-wrapper {
+
+    .clients-card-title {
+        display: grid;
+        grid-template-columns: 40% 30% 15% 15%;
+
+        p {
+            font-size: 16px;
+            font-weight: 600;
+        }
+    }
+    .clients-card {
+        display: grid;
+        grid-template-columns: 40% 30% 15% 15%;
+        align-items: center;
+        border: 1px solid gray;
+        padding: 7px 10px;
+
+        p {
+            margin: 0;
+        }
+
+        div {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            img {
+                width: 45px;
+                height: 45px;
+                border-radius: 50%;
+            }
+        }
+
+        button {
+            width: fit-content;
+        }
+    }
+}

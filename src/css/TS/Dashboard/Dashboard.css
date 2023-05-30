@@ -1,0 +1,102 @@
+.dashboard-header {
+  position: fixed;
+  height: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 100px;
+  left: 240px;
+  border: 1px solid gray;
+  border-left: 0;
+  width: calc(100% - 240px);
+  background: #fff;
+  z-index: 9;
+}
+.dashboard-header .fa-cart-shopping {
+  font-size: 24px;
+  color: red;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.dashboard-header .user {
+  cursor: pointer;
+}
+.dashboard-header img {
+  margin-left: 10px;
+}
+.dashboard-header img:first-child {
+  margin-right: 10px;
+}
+.dashboard-header .log_out {
+  margin-left: 10px;
+  border: 0;
+  background: transparent;
+  color: red;
+  font-size: 18px;
+  font-weight: 600;
+}
+.dashboard-header input {
+  border: 0;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 22px;
+  color: #4B5563;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  width: 240px;
+  border: 1px solid gray;
+  height: 100%;
+}
+.sidebar h1 {
+  height: 64px;
+  text-align: center;
+  margin: 0;
+  overflow: hidden;
+}
+.sidebar h1 img {
+  width: 90%;
+}
+.sidebar ul {
+  margin-top: 64px;
+  padding: 0 20px;
+}
+.sidebar ul li {
+  list-style: none;
+  line-height: 40px;
+  margin-bottom: 10px;
+}
+.sidebar ul li .link {
+  color: #8D97B2;
+  margin-left: 10px;
+  text-decoration: none;
+  font-weight: 400;
+}
+.sidebar ul li .link span {
+  margin-left: 10px;
+}
+.sidebar ul li .active {
+  color: blue;
+}
+.sidebar ul li img {
+  color: blue;
+}
+.sidebar ul .active {
+  color: blue;
+  background: #EBF0FD;
+  border-radius: 8px;
+  border: 1px solid #EBF0FD;
+}
+
+.dashboard-main {
+  position: relative;
+  top: 64px;
+  left: 240px;
+  padding: 0px 60px;
+  width: calc(100% - 240px);
+  height: 100%;
+}/*# sourceMappingURL=Dashboard.css.map */
