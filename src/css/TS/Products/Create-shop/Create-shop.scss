@@ -29,7 +29,7 @@
                 color: #8D97B2;
             }
 
-            input {
+            .input-category {
                 width: 450px;
                 height: 36px;
                 border-radius: 8px;
@@ -47,12 +47,24 @@
                 grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
                 gap: 20px;
                 justify-content: space-between;
-                margin-top: 20px;
 
                 button:first-child {
                     border: 1px solid #8D97B2;
                 }
             }
+
+            .btn-wrap {
+                margin-top: 20px;
+            }
+
+            // select {
+            //     width: 450px;
+            //     height: 36px;
+            //     border: 1px solid gray;
+            //     border-radius: 8px;
+            //     padding: 0px 10px;
+            //     color: #8D97B2;
+            // }
         }
 
         .picture-wrapper {

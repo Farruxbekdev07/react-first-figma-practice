@@ -8,6 +8,7 @@ import { doc, getDoc } from 'firebase/firestore';
 
 const EditModal = ({id}) => {
     const userEmail = localStorage.getItem('email')
+    const [image, setImage] = useState('');
     const [name, setName] = useState('');
     const [price, setPrice] = useState('');
     const [total, setTotal] = useState('');
@@ -44,101 +45,115 @@ const EditModal = ({id}) => {
     };
 
     return (
-      <>
-        <Button onClick={() => showModal(productData.id)}>
-            Update
-        </Button>
-        <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk} okText={'Edit'} onCancel={handleCancel}>
-            <Form
-                name="basic"
-                labelCol={{
-                    span: 8,
-                }}
-                wrapperCol={{
-                    span: 16,
-                }}
-                style={{
-                    maxWidth: 600,
-                }}
-                initialValues={{
-                    remember: true,
-                }}
-                autoComplete="off"
-            >
-                <Form.Item
-                    label="Product name"
-                    name="name"
-                    allowClear
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input product name!',
-                        },
-                    ]}
-                >
-                <Input allowClear value={name} onChange={(e) => setName(e.target.value)} defaultValue={productData.names} type='text' />
-                </Form.Item>
-
-                <Form.Item
-                    label="Price"
-                    name="price"
-                    rules={
-                        [
-                        {
-                            required: true,
-                            message: 'Please input price!',
-                        },
-                    ]}
-                >
-                    <Input allowClear value={price} onChange={(e) => setPrice(e.target.value)} defaultValue={productData.prices} type='number' />
-                </Form.Item>
-
-                <Form.Item
-                    label="Discount"
-                    name="discount"
-                    rules={[
-                        {
-                        required: true,
-                        message: 'Please input discount!',
-                        },
-                    ]}
-                >
-                <Input allowClear value={discount} onChange={(e) => setDiscount(e.target.value)} defaultValue={productData.discounts} type='number' />
-                </Form.Item>
-                <Form.Item
-                    label="Quantity"
-                    name="qty"
-                    rules={[
-                        {
-                        required: true,
-                        message: 'Please input quantity!',
-                        },
-                    ]}
-                >
-                <Input allowClear value={quantity} onChange={(e) => setQuantity(e.target.value)} defaultValue={productData.quantity} type='number' />
-                </Form.Item>
-                <Form.Item
-                    label="Total"
-                    name="total"
-                    rules={[
-                        {
-                        required: true,
-                        message: 'Please input total!',
-                        },
-                    ]}
-                >
-                <Input allowClear value={total} onChange={(e) => setTotal(e.target.value)} defaultValue={productData.totals} type='number' />
-                </Form.Item>
-                <Form.Item
+        <>
+            <Button onClick={() => showModal(productData.id)}>
+                Update
+            </Button>
+            <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk} okText={'Edit'} onCancel={handleCancel}>
+                <Form
+                    name="basic"
+                    labelCol={{
+                        span: 8,
+                    }}
                     wrapperCol={{
-                        offset: 8,
                         span: 16,
                     }}
+                    style={{
+                        maxWidth: 600,
+                    }}
+                    initialValues={{
+                        remember: true,
+                    }}
+                    autoComplete="off"
                 >
-                </Form.Item>
-            </Form>
-        </Modal>
-      </>
+                    <Form.Item
+                        label="Product Image"
+                        name="image"
+                        allowClear
+                        rules={[
+                            {
+                                required: true,
+                                message: 'Please input product name!',
+                            },
+                        ]}
+                    >
+                    <Input allowClear onChange={(e) => setImage(e.target.files)} defaultValue={productData.names} type='file' />
+                    </Form.Item>
+
+                    <Form.Item
+                        label="Product name"
+                        name="name"
+                        allowClear
+                        rules={[
+                            {
+                                required: true,
+                                message: 'Please input product name!',
+                            },
+                        ]}
+                    >
+                    <Input allowClear value={name} onChange={(e) => setName(e.target.value)} defaultValue={productData.names} type='text' />
+                    </Form.Item>
+
+                    <Form.Item
+                        label="Price"
+                        name="price"
+                        rules={
+                            [
+                            {
+                                required: true,
+                                message: 'Please input price!',
+                            },
+                        ]}
+                    >
+                        <Input allowClear value={price} onChange={(e) => setPrice(e.target.value)} defaultValue={productData.prices} type='number' />
+                    </Form.Item>
+
+                    <Form.Item
+                        label="Discount"
+                        name="discount"
+                        rules={[
+                            {
+                            required: true,
+                            message: 'Please input discount!',
+                            },
+                        ]}
+                    >
+                    <Input allowClear value={discount} onChange={(e) => setDiscount(e.target.value)} defaultValue={productData.discounts} type='number' />
+                    </Form.Item>
+                    <Form.Item
+                        label="Quantity"
+                        name="qty"
+                        rules={[
+                            {
+                            required: true,
+                            message: 'Please input quantity!',
+                            },
+                        ]}
+                    >
+                    <Input allowClear value={quantity} onChange={(e) => setQuantity(e.target.value)} defaultValue={productData.quantity} type='number' />
+                    </Form.Item>
+                    <Form.Item
+                        label="Total"
+                        name="total"
+                        rules={[
+                            {
+                            required: true,
+                            message: 'Please input total!',
+                            },
+                        ]}
+                    >
+                    <Input allowClear value={total} onChange={(e) => setTotal(e.target.value)} defaultValue={productData.totals} type='number' />
+                    </Form.Item>
+                    <Form.Item
+                        wrapperCol={{
+                            offset: 8,
+                            span: 16,
+                        }}
+                    >
+                    </Form.Item>
+                </Form>
+            </Modal>
+        </>
     );
 };
 export default EditModal;

@@ -4,11 +4,12 @@ import { db } from "../../firebase";
 import img from '../../media/images/table.png';
 const userEmail = localStorage.getItem('email');
 
-async function AddProduct( image, name, price, total, qty, discount ) {
+async function AddProduct( name, price, total, qty, discount, image, category ) {
   const date = new Date();
   const day = date.getDate();
   const month = date.getMonth() + 1;
   const year = date.getFullYear();
+  console.log(category);
 
   try {
     const docRef = await addDoc(collection(db, `${userEmail}.products`), {
@@ -18,6 +19,7 @@ async function AddProduct( image, name, price, total, qty, discount ) {
       quantity: qty,
       discounts: discount,
       images: image,
+      category: category,
       id: Math.floor(Math.random() * 100),
       created: `${day}/${month}/${year}`,
     });

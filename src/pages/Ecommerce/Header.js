@@ -11,11 +11,13 @@ import { GetUser } from "../../Utils/User_utils/User_utils.js";
 
 function HeaderPage() {
     const [user, setUser] = useState([]);
+    const [newUser, setNewUser] = useState([]);
 
     useEffect(() => {
         async function get() {
             const getUser = await GetUser();
-            setUser(getUser);
+            setNewUser(getUser);
+            console.log(newUser, 'new user');
         }
         get()
     }, [user]);
@@ -27,7 +29,7 @@ function HeaderPage() {
                     <Link to='/'>Home</Link>
                 </li>
                 <li>
-                    <Link to={user ? '/dashboard' : '/login'}>Shop</Link>
+                    <Link to={newUser ? '/dashboard' : '/sign-up'}>Shop</Link>
                     {/* <Link to='/dashboard'>Shop</Link> */}
                 </li>
                 <li>

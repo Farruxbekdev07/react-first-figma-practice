@@ -31,7 +31,7 @@ async function AddUser( fullName, phone, email, password ) {
 async function GetUser() {
   const docSnap = await getDocs(collection(db, "users"));
   return docSnap.docs.map((item) => {
-    return item.data();
+    return {...item.data(), id: item.id};
   });
 }
 function setLocalStorage(key) {

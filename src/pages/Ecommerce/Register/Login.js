@@ -25,8 +25,11 @@ function Login() {
                 setLocalStorage(email);
                 navigate('/dashboard');
                 message.success('Sign In Succesfully');
+                const user = auth.currentUser;
+                console.log(user, 'auth');
+                console.log(userCredential.user.uid, 'user credential');
             }).catch((err) => {
-                console.log(err);
+                // console.log(err);
                 setForgotPassword('Forgot password?');
                 message.error(`Email or password error`);
             })
@@ -40,12 +43,12 @@ function Login() {
             if (user) {
                 const uid = user.uid;
                 const name = user.providerId;
-                navigate('/dashboard')
-                console.log(name, 'id');
-                console.log(uid, 'uid');
+                navigate('/dashboard');
+                // console.log(name, 'id');
+                // console.log(uid, 'uid');
             } else {
                 navigate('/login');
-                console.log('error');
+                // console.log('error');
             }
         });
     }, [])

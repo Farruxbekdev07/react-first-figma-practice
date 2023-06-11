@@ -3,7 +3,6 @@
     padding: 0;
     margin: 0;
 }
-
 .category {
     padding: 0 10px;
     display: flex;
@@ -18,4 +17,7 @@
 .danger:hover {
     background: red;
     color: white;
+}
+.ant-select-selector {
+    margin: 0;
 }

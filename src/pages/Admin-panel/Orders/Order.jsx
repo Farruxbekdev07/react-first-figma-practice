@@ -11,24 +11,39 @@ import action from '../../../media/images/action.png';
 import '../../../css/TS/Orders/order.css';
 import { Timestamp, addDoc, collection, deleteDoc, doc, getDoc, getDocs } from "firebase/firestore";
 import { db } from "../../../firebase";
-import { Button } from "antd";
+import { Button, Select } from "antd";
 
 function Order() {
     const userEmail = localStorage.getItem('email')
     const [search, setSearch] = useState('');
     const [orders, setOrders] = useState([]);
     const [newOrders, setNewOrders] = useState([]);
+    const byName = ['A to Z', 'Z to A'];
+    const added = ['First added', 'Last added'];
 
     async function getOrder() {
         const docSnap = await getDocs(collection(db, `${userEmail}.order`));
         return docSnap.docs.map((item) => {
-            return {...item.data(), id: item.id};
-        }); 
+            return [...item.data().order];
+        });
     }
 
     async function Buy(id) {
-        const docRef = doc(db, `${userEmail}.order`, id);
-        const docSnap = (await getDoc(docRef)).data();
+        // const docRef = doc(db, `${userEmail}.order`, id);
+        // const docSnap = await getDoc(docRef);
+        const orders = newOrders.map(item => {
+            return item.filter(item => {
+                return item.id === id;
+            })
+        });
+        const orderName = orders[0].map(item => item.names)
+        const orderPrice = orders[0].map(item => item.prices)
+        const orderTotal = orders[0].map(item => item.totals)
+        const orderQty = orders[0].map(item => item.quantity)
+        const orderDiscount = orders[0].map(item => item.discounts)
+        const orderImage = orders[0].map(item => item.images)
+        console.log(orders[0]);
+        console.log(orderName.toString());
         const date = new Date();
         const day = date.getDate();
         const month = date.getMonth() + 1;
@@ -36,12 +51,12 @@ function Order() {
 
         try {
             const docRef = await addDoc(collection(db, `${userEmail}.sales`), {
-              names: docSnap.names,
-              prices: docSnap.prices,
-              totals: docSnap.totals,
-              quantity: docSnap.quantity,
-              discounts: docSnap.discounts,
-              images: docSnap.images,
+              names: orderName.toString(),
+              prices: orderPrice.toString(),
+              totals: orderTotal.toString(),
+              quantity: orderQty.toString(),
+              discounts: orderDiscount.toString(),
+              images: orderImage.toString(),
               id: Math.floor(Math.random() * 100),
               created: `${day}/${month}/${year}`,
             });
@@ -54,6 +69,11 @@ function Order() {
     async function Remove(id) {
         const userEmail = localStorage.getItem('email');
         const docRef = doc(db, `${userEmail}.order`, id);
+        const orders = newOrders.map(item => {
+            return item.filter(item => {
+                return item.id === id;
+            })
+        });
         await deleteDoc(docRef);
     }
 
@@ -64,6 +84,30 @@ function Order() {
         }
         get()
     }, [orders])
+
+    async function SortByName(key) {
+        const products = await getOrder();
+        console.log(products);
+        // if (key == 'A to Z') {
+        //     const productFilter = products.sort((a, b) => (a.names > b.names ? 1 : -1))
+        //     setNewOrders(productFilter);
+        // } else {
+        //     const productFilter = products.sort((a, b) => (a.names > b.names ? -1 : 1))
+        //     setNewOrders(productFilter);
+        // }
+    }
+
+    async function SortByDate(key) {
+        const products = await getOrder();
+        console.log(products);
+        // if (key == 'A to Z') {
+        //     const productFilter = products.sort((a, b) => (a.names > b.names ? 1 : -1))
+        //     setNewOrders(productFilter);
+        // } else {
+        //     const productFilter = products.sort((a, b) => (a.names > b.names ? -1 : 1))
+        //     setNewOrders(productFilter);
+        // }
+    }
 
     return (
         <>
@@ -80,17 +124,34 @@ function Order() {
                                 <input onChange={(e) => setSearch(e.target.value)} type="text" placeholder="Search" />
                             </div>
                             <div className="button-wrapper">
-                                <button onClick={() => getOrder()}>
-                                    <img className="filter" src={filter2} alt="filter2" />
-                                </button>
+                                <Select
+                                    onChange={(value) => SortByName(value)}
+                                    defaultValue={byName[0]}
+                                    style={{
+                                        marginLeft: 10,
+                                        width: 100,
+                                    }}
+                                    options={byName.map((province) => ({
+                                        label: province,
+                                        value: province,
+                                    }))}
+                                />
                                 <button className="category">
                                     Status
                                     <img src={category} alt="category" />
                                 </button>
-                                <button className="category">
-                                    Data
-                                    <img src={strelka} alt="strelka" />
-                                </button>
+                                <Select
+                                    onChange={(value) => SortByDate(value)}
+                                    defaultValue={added[0]}
+                                    style={{
+                                        marginLeft: 10,
+                                        width: 120,
+                                    }}
+                                    options={added.map((province) => ({
+                                        label: province,
+                                        value: province,
+                                    }))}
+                                />
                             </div>
                         </div>
                         <div className="orders">
@@ -105,36 +166,39 @@ function Order() {
                                     <p>Action</p>
                                 </div>
                                 {
-                                    newOrders.filter((item) => {
+                                    newOrders.map(item => item.filter((item) => {
                                         return search.toLowerCase() === ''
                                         ? item
                                         : item.names.toLowerCase().includes(search);
-                                    }).map((item, id) => {
-                                        return (
-                                            <div className="order-card" key={id}>
-                                                {/* <p>{item.id}</p> */}
-                                                <p>2515</p>
-                                                <p>{item.names}</p>
-                                                <p>${item.prices}</p>
-                                                <p>${item.totals}</p>
-                                                <button className="status">Active</button>
-                                                <p>{item.discounts}%</p>
-                                                <div class="dropdown-center">
-                                                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        Action
-                                                    </button>
-                                                    <ul class="dropdown-menu">
-                                                        <li onClick={(e) => e.preventDefault()}>
-                                                            <a class="dropdown-item" onClick={() => Buy(item.id)} >Buy</a>
-                                                        </li>
-                                                        <li onClick={(e) => e.preventDefault()}>
-                                                            <a class="dropdown-item" onClick={() => Remove(item.id)} >Remove</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        );
                                     })
+                                    .map((item, id) => {
+                                        return (
+                                            <>
+                                                <div className="order-card" key={id}>
+                                                    <p>2515</p>
+                                                    <p>{item.names}</p>
+                                                    <p>${item.prices}</p>
+                                                    <p>${item.totals}</p>
+                                                    <button className="status">Active</button>
+                                                    <p>{item.discounts}%</p>
+                                                    <div class="dropdown-center">
+                                                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            Action
+                                                        </button>
+                                                        <ul class="dropdown-menu">
+                                                            <li onClick={(e) => e.preventDefault()}>
+                                                                <button class="dropdown-item" onClick={() => Buy(item.id)} >Buy</button>
+                                                            </li>
+                                                            <li onClick={(e) => e.preventDefault()}>
+                                                                <button class="dropdown-item" onClick={() => Remove(item.id)} >Remove</button>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                {/* <p>{item.id}</p> */}
+                                            </>
+                                        )
+                                    }))
                                 }
                             </div>
                         </div>

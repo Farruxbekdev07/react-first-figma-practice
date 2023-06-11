@@ -36,7 +36,7 @@ function Sales() {
 
     function reduce() {
         const arr = newProduct.map(item => {
-            const price = item.prices - (item.prices / 100 * item.discounts);
+            const price = item.prices - ((item.prices / 100 * item.discounts) * item.quantity);
             return price;
         })
         const res = arr.reduce(getSum, 0);

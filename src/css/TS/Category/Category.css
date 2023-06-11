@@ -19,4 +19,8 @@
 .danger:hover {
   background: red;
   color: white;
+}
+
+.ant-select-selector {
+  margin: 0;
 }/*# sourceMappingURL=Category.css.map */

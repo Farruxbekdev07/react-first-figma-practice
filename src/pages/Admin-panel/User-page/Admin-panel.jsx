@@ -1,12 +1,18 @@
 import { Button } from "antd";
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import kodecolor from '../../../media/images/kodecolor.webp';
 import profile from '../../../media/images/user-image.webp';
 import '../../../css/TS/Profile-page/Profile-page.css';
 
+function getUser(userId) {
+    console.log(userId);
+}
+
 function AdminPanel() {
     console.log('admin');
+    const [] = useState('')
+    
     return (
         <>
             {/* <div>
@@ -37,7 +43,10 @@ function AdminPanel() {
                     <div className="notification"></div>
                 </div>
             </header>
+            <main>
+                <Button>Get User</Button>
+            </main>
         </>
     )
 }
-export { AdminPanel };
+export { AdminPanel, getUser };

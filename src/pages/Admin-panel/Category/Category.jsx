@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Dashboard } from "../Dashboard/Dashboard";
-import { Button, Dropdown, Space } from 'antd';
+import { Button, Divider, Dropdown, Input, Select, Space } from 'antd';
 import category from '../../../media/images/down_strelka.png';
 // import { getCategory } from "../Products/Product-Sales/Sales";
 import { deleteDoc, doc } from "firebase/firestore";
@@ -37,31 +37,7 @@ function Category() {
                   <div className="wrapper">
                     <div className="wrapper-body">
                       <div className="card-wrapper">
-                        {/* {
-                          newProduct.map((item, i) => {
-                            return (
-                              <div key={i} className="card">
-                                  <div className="card-body">
-                                      <Button className="danger" type="primary">{item.discounts}%</Button>
-                                      <Link to={`/dashboard/products/detail/${item.id}`}>
-                                          <img onClick={() => Product_detail(item.id)} src={item.images} alt="table" />
-                                      </Link>
-                                  </div>
-                                  <div className="card-footer">
-                                      <div>
-                                          <p className="title">{item.names}</p>
-                                          <b>${item.prices}</b>
-                                      </div>
-                                      <div>
-                                          <div>
-                                              <Button className="danger">Remove</Button>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                            )
-                          })
-                        } */}
+
                       </div>
                     </div>
                   </div>
@@ -71,50 +47,62 @@ function Category() {
     );
 };
 
-function DropdownFunc () {
-    const items = [
-      {
-        key: '1',
-        label: (
-          <button>
-            By Name
-          </button>
-        ),
-      },
-      {
-        key: '2',
-        label: (
-          <button>
-            By Price
-          </button>
-        ),
-      },
-      {
-        key: '3',
-        label: (
-          <button>
-            By Name
-          </button>
-        ),
-      },
-    ];
+function SelectCategory () {
+  let index = 0;
+  const [items, setItems] = useState(['Furniture', 'Food', 'Car', 'Bike']);
+  const [name, setName] = useState('');
+  const inputRef = useRef(null);
 
-    return (
-        <Space direction="vertical">
-            <Space wrap>
-                <Dropdown
-                    menu={{items}}
-                    placement="bottom"
-                >
-                    <Button className="category">
-                      Category
-                      <img src={category} alt="category" />
-                    </Button>
-                </Dropdown>
-            </Space>
-        </Space>
-    )
+  const onNameChange = (event) => {
+    setName(event.target.value);
+  };
+
+  const addItem = (e) => {
+    e.preventDefault();
+    setItems([...items, name || `New item ${index++}`]);
+    setName('');
+    setTimeout(() => {
+      inputRef.current?.focus();
+    }, 0);
+  };
+
+  return (
+    <Select
+      style={{
+        width: 450,
+      }}
+      placeholder="custom dropdown render"
+      dropdownRender={(menu) => (
+        <>
+          {menu}
+          <Divider
+            style={{
+              margin: '8px 0',
+            }}
+          />
+          <Space
+            style={{
+              padding: '0 8px 4px',
+            }}
+          >
+            <Input
+              placeholder="Please enter item"
+              ref={inputRef}
+              value={name}
+              onChange={onNameChange}
+            />
+            <Button type="text" onClick={addItem} >
+              Add item
+            </Button>
+          </Space>
+        </>
+      )}
+      options={items.map((item) => ({
+        label: item,
+        value: item,
+      }))}
+    />
+  );
 };
-DropdownFunc()
 
-export { Category, DropdownFunc };
+export { Category, SelectCategory };

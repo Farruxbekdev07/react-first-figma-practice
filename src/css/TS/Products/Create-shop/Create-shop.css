@@ -29,7 +29,7 @@
   margin: 10px 0;
   color: #8D97B2;
 }
-.product-wrapper .input-wrapper .label-wrapper input {
+.product-wrapper .input-wrapper .label-wrapper .input-category {
   width: 450px;
   height: 36px;
   border-radius: 8px;
@@ -37,10 +37,10 @@
   padding: 0px 10px;
   color: #8D97B2;
 }
-.product-wrapper .input-wrapper .label-wrapper input ::-moz-placeholder {
+.product-wrapper .input-wrapper .label-wrapper .input-category ::-moz-placeholder {
   color: #8D97B2;
 }
-.product-wrapper .input-wrapper .label-wrapper input ::placeholder {
+.product-wrapper .input-wrapper .label-wrapper .input-category ::placeholder {
   color: #8D97B2;
 }
 .product-wrapper .input-wrapper .label-wrapper div {
@@ -48,10 +48,12 @@
   grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
   gap: 20px;
   justify-content: space-between;
-  margin-top: 20px;
 }
 .product-wrapper .input-wrapper .label-wrapper div button:first-child {
   border: 1px solid #8D97B2;
+}
+.product-wrapper .input-wrapper .label-wrapper .btn-wrap {
+  margin-top: 20px;
 }
 .product-wrapper .input-wrapper .picture-wrapper {
   border: 1px solid gray;
